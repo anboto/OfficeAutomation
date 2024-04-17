@@ -1564,7 +1564,7 @@ bool MSDoc::Replace(String search, String _replace) {
         replace = replace.Right(replace.GetCount() - 200);
         
         replaceSubset.Replace("\n", "^l");  
-        if (!ReplaceSubset(search, replaceSubset))
+		if (!ReplaceSubset(search, replaceSubset))
         	return false;
     }
     replace.Replace("\n", "^l");  
@@ -1576,7 +1576,7 @@ String MSDoc::CleanString(String str) {	// Clean chars in String
     String valid = ">=<ºª%€&()$1234567890áéíóúÁÉÍÓÚñÑçÇ,.,:-_/¿?+*[]{}'\"!¡ \r\n";
     for (int i = 0; i < str.GetCount(); ++i) {
         int s = str[i];        
-        if (IsLetter(s) || valid.Find(s) >= 0)
+		if (IsLetter(s) || valid.Find(s) >= 0)
             ret.Cat(s);
     }
     return ret;
