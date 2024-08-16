@@ -20,7 +20,7 @@ void TestGetchar()
 void Puts(String s)
 {
 	puts(s);
-	String file = AppendFileNameX(GetDesktopFolder(), "Automation demo.log");
+	String file = AppendFileNameX(GetExeFolder(), "Automation demo.log");
 	SaveFile(file, LoadFile(file) + "\n" + s);
 }
 
@@ -28,8 +28,8 @@ void TestSheetDetail(OfficeSheet &sheet)
 {
 	Puts("Spreadsheet automation functions demo");
 
-	String test  = AppendFileNameX(GetDesktopFolder(), "Test.xlsx");
-	String test2 = AppendFileNameX(GetDesktopFolder(), sheet.GetType() == "Open" ? "TestOpen.xlsx": "TestMicrosoft.xlsx");
+	String test  = AppendFileNameX(GetExeFolder(), "Test.xlsx");
+	String test2 = AppendFileNameX(GetExeFolder(), sheet.GetType() == "Open" ? "TestOpen.xlsx": "TestMicrosoft.xlsx");
 	
 	if (!sheet.OpenSheet(test, true)) {
 		puts(test + " does not exist. Adding new");
@@ -152,8 +152,8 @@ void TestDocDetail(OfficeDoc &doc)
 {
 	Puts("Word processor automation functions demo");
 
-	String test  = AppendFileNameX(GetDesktopFolder(), "Test.docx");
-	String test2 = AppendFileNameX(GetDesktopFolder(), doc.GetType() == "Open" ? "TestOpen.docx": "TestMicrosoft.docx");
+	String test  = AppendFileNameX(GetExeFolder(), "Test.docx");
+	String test2 = AppendFileNameX(GetExeFolder(), doc.GetType() == "Open" ? "TestOpen.docx": "TestMicrosoft.docx");
 	
 	if (!doc.OpenDoc(test, true)) {
 		puts(test + " does not exist. Adding new");
@@ -211,7 +211,7 @@ void TestDoc()
 
 CONSOLE_APP_MAIN
 {
-	FileDelete(AppendFileNameX(GetDesktopFolder(), "Automation demo.log"));
+	FileDelete(AppendFileNameX(GetExeFolder(), "Automation demo.log"));
 		
 	Puts("Introduce number of test cycles or just type enter to run it once: ");
 	char str[50];	
