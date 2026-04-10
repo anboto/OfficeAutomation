@@ -1675,7 +1675,7 @@ public:
 		
 		for (int i = 0; i < strFile.GetCount(); ++i) {
 			if (strFile[i] >= 123)
-				c = "%" + Format("%x", strFile[i]);
+				c = "%" + F("%x", strFile[i]);
 			else {
 				switch (strFile[i]) {
 				case 9:		c = "%09";	break;
@@ -1683,7 +1683,7 @@ public:
 	      		case 10:	c = "%0a";	break;
 	      		case 32: case 33: case 34: case 35: case 37: case 38: case 39: case 40: case 41: case 43: 
 	      		case 44: case 59: case 60: case 61: case 62: case 63: case 91: case 93: case 94: case 96:	
-	      					c = "%" + Format("%x", strFile[i]); break;
+	      					c = "%" + F("%x", strFile[i]); break;
 				case '\\':	c = "/";	break;		
 				case ':':	c = "|";	break;
 				default:	c = strFile.Mid(i, 1);

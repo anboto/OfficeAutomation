@@ -68,7 +68,7 @@ void TestSheetDetail(OfficeSheet &sheet)
 
 	Puts("Filling header using SetValue");  
 	for (int x = 1; x <= 20; ++x)
-		sheet.SetValue(x, 1, Format("Header %d", x));
+		sheet.SetValue(x, 1, F("Header %d", x));
 	
 	sheet.Select(2, 2, 5, 4);
 	sheet.SetBold(true);	
@@ -100,8 +100,8 @@ void TestSheetDetail(OfficeSheet &sheet)
 	
 	data.Clear();
 	sheet.MatrixGet(1, 11, 10, 10, data);
-	Puts(Format("Retrieved data from cell 1, 11: %s", AsString(data[0][0])));
-	Puts(Format("Retrieved data from cell 5, 16: %s", AsString(data[5][5])));
+	Puts(F("Retrieved data from cell 1, 11: %s", AsString(data[0][0])));
+	Puts(F("Retrieved data from cell 5, 16: %s", AsString(data[5][5])));
 		
 	sheet.SetValue(2, 2, "=A7*B5");
 	sheet.SetValue(3, 21, "Hello");				Puts("Cell(3, 21) = " + sheet.GetValue(3, 21).ToString());
@@ -177,7 +177,7 @@ void TestDocDetail(OfficeDoc &doc)
 	Puts("\nPress enter to check Replace()");	TestGetchar();
 	doc.Select();		// Select all doc
 	String replace = "Ultimate++ is a C++ cross-platform rapid application development suite focused on programmers productivity.\nIt includes a set of libraries (GUI, SQL, etc..), and an integrated development environment.\nRapid development is achieved by the smart and aggressive use of C++ rather than through fancy code generators.\nIn this respect, U++ competes with popular scripting languages while preserving C/C++ runtime characteristics.\nThe U++ integrated development environment, TheIDE, introduces modular concepts to C++ programming.\nIt features BLITZ-build technology to speedup C++ rebuilds up to 4 times, Visual designers for U++ libraries, Topic++ system for documenting code and creating rich text resources for applications (like help and code documentation) and Assist++ - a powerful C++ code analyzer that provides features like code completion, navigation and transformation.\nTheIDE can work with GCC, MinGW and Visual C++ 7.1 or 8.0 compilers (including free Visual C++ Toolkit 2003 and Visual C++ 2005 Express Edition) and contains a full featured debugger.\nTheIDE can also be used to develop non-U++ applications.\nU++ distributions combine U++ with 3rd party tools like MinGW compiler or SDL library to provide an instant development platform.\nWhat you can get with the Ultimate++ download in plain English\n - Very effective C++ library for cross-platform development in source form.\n - A good integrated development environment, designed for developing large C++ applications.\nYou can use both, or you can use whichever you need.\nSome special characters to test: >=<ºª%€&()$1234567890áéíóúÁÉÍÓÚñÑçÇ,.,:-_/¿?+*[]{}'\"!¡\n";
-	Puts(Format("Result: %s", doc.Replace("[To replace]", replace)? "Well done": "Problems replacing"));
+	Puts(F("Result: %s", doc.Replace("[To replace]", replace)? "Well done": "Problems replacing"));
 	Puts("All done.");
 
 	FileDelete(test2);
